@@ -1,4 +1,4 @@
-source ~/.vimrc.bundle
+source ~/dotfiles/.vimrc.bundle
 
-source ~/.vimrc.basic
-source ~/.vimrc.completion
+source ~/dotfiles/.vimrc.basic
+source ~/dotfiles/.vimrc.completion
