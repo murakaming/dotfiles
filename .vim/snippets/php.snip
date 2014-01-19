@@ -1,6 +1,108 @@
-snippet if
-abbr    if endif
-prev_word   '^'
-    if ${1:condition}
-        ${2}
-    endif
+# --------------------------------------------------
+# Controller
+# --------------------------------------------------
+snippet controller
+    <?php
+    class ${1}Controller extends ${3:AppController} {
+        var $name = '${2}';
+        var $uses = null;
+        // var $scaffold;
+        // var $view = 'Theme';
+        // var $theme = '';
+        // var $layout = 'default';
+        // var $components = array();
+        // var $helpers = array();
+
+        function index() {
+        }
+        ${0}
+    }
+
+snippet cset
+    $this->set('${1:name}', ${2:value});${0}
+
+snippet credirect
+    $this->redirect(array('controller' => '${1:controller_name}', 'action' => '${2:action_name}'));${0}
+
+snippet crequest_is
+    $this->request->is('${1:get/post}')${0}
+
+snippet crequest_data
+    $this->request->data${0}
+
+# --------------------------------------------------
+# Model
+# --------------------------------------------------
+snippet model
+    class ${1:singular_name} extends ${2:AppModel} {
+        var $name = '${3:singular_name}';
+        var $validate = array(
+
+        );
+        ${0}
+    }
+
+snippet mfind
+    $this->${1:model_name}->find(
+        '${2:all/first/count/list/threaded/neighbours}',
+        array(
+            'conditions' => array(
+            '${3:where_column}' => ${4:where_condition},
+            ),
+            // 'fields' => array('',''),
+            // 'fields' => array('sum(hoge_count) as "Hoge.hoge_count"'),
+            // 'limit' => 10,
+            // 'order' => array('Model.col' => 'desc/asc'),
+            // 'recursive' => -1,
+        )
+    );
+    ${0}
+
+snippet msave
+    $this->${1:model_name}->save(${2:array_data}, ${3:true}, ${4:array_validate_fields})${0}
+
+# --------------------------------------------------
+# Configure
+# --------------------------------------------------
+snippet configure_read
+    Configure::read('${1:one.two.three.four}');${0}
+
+# --------------------------------------------------
+# php
+# --------------------------------------------------
+snippet func
+    function ${1}(${2}) {
+        ${0:# code...}
+    }
+
+snippet vd
+    echo '<pre>';
+    var_dump(${1});
+    echo '</pre>';
+    ${0}
+
+snippet php
+    <?php
+    ${1}
+    ?>
+
+
+snippet pfore
+    <?php foreach ($${1:variable} as $${2:key}${3: =>}): ?>
+    ${0}
+    <?php endforeach; ?>
+
+snippet pife
+    <?php if (${1:condition}): ?>
+    ${2}
+    <?php else: ?>
+    ${0}
+    <?php endif; ?>
+
+snippet pif
+    <?php if (${1:condition}): ?>
+    ${0}
+    <?php endif; ?>
+
+snippet pelse
+    <?php else: ?>
