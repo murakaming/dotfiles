@@ -1,0 +1,14 @@
+syntax on
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+set number
+set smartindent
+set incsearch
+
+autocmd FileType make setlocal noexpandtab
+
+" http://d.hatena.ne.jp/trashsuite/20090107/1231307797
+set backspace=indent,eol,start
